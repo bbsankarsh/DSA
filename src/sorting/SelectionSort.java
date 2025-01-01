@@ -2,27 +2,42 @@ package sorting;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int[] n = {89, 45, 33, 90, 12};
-        printArray(descSort(n));
+        int[] arr = {89, 45, 33, 90, 12};
+        descSort(arr);
+        ascSort(arr);
+        printArray(arr);
     }
 
-    private static int[] descSort(int[] n) {
-        int length = n.length;
-        int newLength = length;
-        for (int i = 0; i < length-1; i++) {
-            int smallest = n[i];
-            for (int j = 0; j < newLength; j++) {
-                if (n[i] < smallest) {
-                    smallest = n[i];
-                    break;
+    public static void descSort(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            int max_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] > arr[max_idx]) {
+                    max_idx = j;
                 }
             }
-            int temp = smallest;
-            n[i] = n[0];
-            n[0] = temp;
-            newLength--;
+            int temp = arr[max_idx];
+            arr[max_idx] = arr[i];
+            arr[i] = temp;
         }
-        return n;
+    }
+
+    public static void ascSort(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[min_idx]) {
+                    min_idx = j;
+                }
+            }
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
     }
 
     public static void printArray(int[] arr) {
