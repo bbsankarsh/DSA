@@ -8,7 +8,7 @@ public class SelectionSort {
         printArray(arr);
     }
 
-    public static void descSort(int[] arr) {
+    private static void descSort(int[] arr) {
         int n = arr.length;
 
         for (int i = 0; i < n - 1; i++) {
@@ -24,7 +24,7 @@ public class SelectionSort {
         }
     }
 
-    public static void ascSort(int[] arr) {
+    private static void ascSort(int[] arr) {
         int n = arr.length;
 
         for (int i = 0; i < n - 1; i++) {
@@ -40,7 +40,7 @@ public class SelectionSort {
         }
     }
 
-    public static void printArray(int[] arr) {
+    private static void printArray(int[] arr) {
         for (int i : arr) {
             System.out.print(i + " ");
         }
